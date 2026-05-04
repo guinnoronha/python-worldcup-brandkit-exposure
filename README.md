@@ -14,21 +14,19 @@ worldcup-kit-exposure/
 │   ├── raw/
 │   │   └── worldcup_info.xlsx          # Fonte de dados bruta (3 abas)
 │   └── processed/
-│       ├── fact_team_tournament.csv    # Fato: grão seleção-ano (368 linhas)
+│       ├── fact_team_tournament.csv    # Fato: seleção-ano (368 linhas)
 │       ├── brand_tournament_summary.csv # Agregado: marca por copa (122 linhas)
 │       └── brand_overall_summary.csv   # Agregado: marca geral (47 linhas)
 ├── dashboards/
-│   ├── worldcup_brands_dashboard.html  # Gerado pelo pipeline Python (Plotly)
-│   └── brand_exposure_dashboard.html   # Dashboard estático tema escuro (Chart.js)
+│   └── brand_exposure_dashboard.html   # Dashboard de resultados
 ├── src/
 │   ├── config.py      # Caminhos do projeto
 │   ├── io.py          # Leitura do Excel
 │   ├── transform.py   # Limpeza e construção da tabela fato
 │   ├── metrics.py     # Agregações por marca
-│   ├── dashboard.py   # Geração do dashboard Plotly
+│   ├── dashboard.py   # Geração do dashboard 
 │   └── pipeline.py    # Orquestrador: executa o pipeline completo
 ├── notebooks/
-├── tests/
 ├── requirements.txt
 └── README.md
 ```
@@ -49,7 +47,7 @@ worldcup-kit-exposure/
 
 ## Camada processada
 
-### `fact_team_tournament.csv` — grão: seleção × copa
+### `fact_team_tournament.csv` — seleção × copa
 
 | Coluna | Tipo | Descrição |
 |--------|------|-----------|
@@ -68,11 +66,11 @@ worldcup-kit-exposure/
 | `is_top16` | bool | Top-16 |
 | `stage_norm` | str | Fase normalizada |
 
-### `brand_tournament_summary.csv` — grão: marca × copa
+### `brand_tournament_summary.csv` — marca × copa
 
 Colunas-chave: `teams`, `champions`, `top4`, `top8`, `top16`, `avg_final_position`, `share_teams`, `share_champions`, `share_top4`, `share_top8`.
 
-### `brand_overall_summary.csv` — grão: marca (todas as copas)
+### `brand_overall_summary.csv` — marca (todas as copas)
 
 Colunas-chave: `exposures`, `unique_teams`, `tournaments`, `champions`, `top4`, `top8`, `avg_final_position`, `champion_rate_per_exposure`, `top4_rate_per_exposure`, `top8_rate_per_exposure`.
 
@@ -161,3 +159,11 @@ openpyxl>=3.1
 plotly>=5.18
 numpy>=1.24
 ```
+
+---
+
+## Criado por
+
+**Guilherme Noronha Mello**<br>
+**Linkedin:** linkedin.com/in/guilherme-noronha-mello/<br>
+**Github:** github.com/guinnoronha
